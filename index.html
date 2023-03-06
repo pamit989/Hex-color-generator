@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hex Color Generator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+        transition: 1.2s;
+      }
+      .container {
+        width: 400px;
+        height: auto;
+        background-color: rgb(190, 147, 231);
+        border-radius: 20px;
+        margin-top: 50px;
+        text-align: center;
+        padding: 0 20px;
+      }
+      .gen {
+        display: block;
+        text-align: center;
+        padding: 20px;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 25px;
+      }
+      .btn {
+        padding: 5px 15px;
+        border: none;
+        background-color: navy;
+        color: aqua;
+        font-size: 18px;
+        border-radius: 5px;
+        margin: 20px 0;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="generate" class="gen">Generate Color</div>
+      <button id="btn-1" class="btn">Click To Generate</button>
+    </div>
+    <script>
+      const getColor = () => {
+        const randomNumber = Math.floor(Math.random() * 16777215);
+        const randomCode = "#" + randomNumber.toString(16);
+        document.body.style.backgroundColor = randomCode;
+        document.getElementById("generate").innerText = randomCode;
+      };
+      setTimeout(getColor(), 1000);
+      document.getElementById("btn-1").addEventListener("click", getColor);
+    </script>
+  </body>
+</html>
